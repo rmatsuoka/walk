@@ -68,17 +68,11 @@ func printLongFormat(path string, d fs.DirEntry) {
 	fmt.Fprintf(stdout, "%-13s %10d %s %s\n", info.Mode(), info.Size(), strtime, path)
 }
 
-var sixMonthsAgo = time.Now().AddDate(0, -6, 0)
-
 func formatTime(t time.Time) string {
 	if *uflag {
 		return strconv.FormatInt(t.Unix(), 10)
 	}
-
-	if t.Before(sixMonthsAgo) {
-		return t.Format("Jan _2  2006")
-	}
-	return t.Format("Jan _2 15:04")
+	return t.Format("Jan _2 15:04:05 2006")
 }
 
 type fakeInfo int
