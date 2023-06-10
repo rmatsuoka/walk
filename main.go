@@ -9,8 +9,9 @@ import (
 
 var (
 	lflag    = flag.Bool("l", false, "print long format")
-	maxdepth = flag.Int("max", -1, "max depth")
-	uflag    = flag.Bool("unix", false, "with -l, print unix time")
+	maxdepth = flag.Int("maxdepth", -1, "max depth")
+	mindepth = flag.Int("mindepth", -1, "min depth")
+	oflag    = flag.String("o", "", "set line format")
 	iflag    = flag.Bool("i", false, "ignore dotfiles")
 
 	stdout = bufio.NewWriter(os.Stdout)
